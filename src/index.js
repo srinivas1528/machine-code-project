@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Accordion  from './Accordion';
 import reportWebVitals from './reportWebVitals';
+import Like from './like';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Like />
   </React.StrictMode>
 );
 
