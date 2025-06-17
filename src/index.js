@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Accordion  from './Accordion';
 import reportWebVitals from './reportWebVitals';
 import Like from './like';
 

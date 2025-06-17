@@ -9,12 +9,13 @@ const Like = () => {
 
    const [error, setError] = useState(null);
 
-   const[liked, setLiked] = useState(false);
+   const [liked, setLiked] = useState(false);
 
   
    const handleClick = async () => {
         
     setLoading(true);
+
      try{
          const response = await fetch(
            "https://www.greatfrontend.com/api/questions/like-button",
@@ -22,7 +23,7 @@ const Like = () => {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-            action: liked ? "unlike" : "like",  // send like/unlike action
+            action: liked ? "unlike" : "like",  // send like/unlike action, let backend handle what they want to do with the action; may be log it or do some analytics.
             }),
            }
          );
@@ -40,11 +41,14 @@ const Like = () => {
      } catch {
         setError("Some error encoured");
         setLiked(false);
+     } finally{
+        setLoading(false);
      }
-     setLoading(false);
+     
    }
 
-   // Render button component and pass props to the button component
+   // Pass props to the button component
+   // Render button component. 
    return (
     <div className="App"> 
         <Button onClick={handleClick}
