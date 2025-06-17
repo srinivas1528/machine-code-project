@@ -1,0 +1,22 @@
+.navbarContainer {
+
+    width: 100%;
+    background-color: whitesmoke;
+    border-bottom: 1px solid darkgray;
+    padding: 10px;
+    display:flex;
+    flex-direction: flex-start;
+    height:auto;
+}
+
+
+nav {
+    display:flex;
+    flex-direction: row;
+}
+
+.navbarOptions {
+    display: flex;
+    cursor: pointer;
+    margin:auto 5px auto 25px;
+}
