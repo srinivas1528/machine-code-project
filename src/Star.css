@@ -1,0 +1,22 @@
+.App {
+text-align: center;
+margin-top: 50px;
+}
+
+.StarContainer {
+    display: flex;
+    justify-content: center;
+    /* margin: 10px; */
+    gap: 10px;
+}
+.starDiv {
+    cursor: pointer;
+    flex-direction: column;
+    transition:  transform 0.1s ease-in;
+}
+
+.starDiv:hover{
+    transform: scale(1.2); 
+     /* Slight zoom in effect */
+}
+
