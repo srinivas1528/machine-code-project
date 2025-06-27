@@ -15,12 +15,10 @@ const App = () => {
 
     const isSubmitDisabled = taskInput.trim() === "" || taskInput === taskName;
 
+    // gets task count using useMemo for future use.
     const getCount = useMemo(() => {
         return taskChoresArray.reduce((acc) => acc + 1, 0);
     }, [taskChoresArray])
-
-
-
 
     // set state for taskInput.
     const inputHandler = (e) => {
@@ -45,7 +43,7 @@ const App = () => {
 
     return (
         <div>
-            <InputText disabled={isSubmitDisabled} task={taskInput} onInputHandler={inputHandler} onSubmitHandler={submitHandler} />
+            <InputText disabled={isSubmitDisabled} taskInput={taskInput} onInputHandler={inputHandler} onSubmitHandler={submitHandler} />
             <h1> To do items:</h1>
             <div className="itemContainer">
 

@@ -12,28 +12,22 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
     const [newTitle, setNewTitle] = useState(title);
 
     // Delete task functionality when delete button is clicked.
-    const handleRemoveTask = (task, taskId) => {
+    const handleRemoveTask = (task) => {
         setWorkArray((prev) => prev.filter((todoItem) => todoItem !== task));  // Note: here using id for filter will not work because index acts like a fixed value  as it is a prop.
-        console.log("delete the task.")
-        console.log(`===========After deleteting the task: ${task}`);
-        console.log(workArray);
     }
 
    // set state for editing
     const editTask = () => {
         setIsEditing(true);
-        console.log("edit the task")
     }
     
-
-
     // set state for newTitle
     const inputHandler = (event) => {
         setNewTitle(event.target.value);
     }
 
 
-    const handleSave = (taskIndex) => {
+    const handleSave = () => {
 
        // if item and WorkTitle matches, then update it.
        // else, keep pushing the same item.
@@ -61,10 +55,10 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
                     <div>
                         <p>Edit stage: {newTitle}</p>
                         <input type="text" value={newTitle} onChange={inputHandler}/>
-                        <button type="submit" className="button" onClick={() => handleSave(index)}>
+                        <button className="button" onClick={handleSave}>
                             Save
                         </button>
-                        <button type="submit" className="button" onClick={() => handleCancel()}>
+                        <button className="button" onClick={handleCancel}>
                             Cancel
                         </button>
                     </div>
@@ -72,10 +66,10 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
                 (
                     <div>
                         <div className="task"> {title} </div>
-                        <button className="button" onClick={() => handleRemoveTask(title, index)}>
+                        <button className="button" onClick={() => handleRemoveTask(title)}>
                             Delete
                         </button>
-                        <button className="button" onClick={() => editTask()}>
+                        <button className="button" onClick={editTask}>
                             Edit
                         </button>
                     </div>
