@@ -18,7 +18,7 @@ const useTimer = ( initialValue, active, paused, completed ) => {
             handler = setInterval(() => {
 
                 // Increment timer when start button is clicked
-                setCurrent((prev) => prev + 1);
+                setCurrent((current) => current + 1);
 
             }, 1000)
         }
@@ -27,7 +27,7 @@ const useTimer = ( initialValue, active, paused, completed ) => {
     }, [active, paused, completed, initialValue])
 
 
-    return { current, setCurrent }
+    return  {current ,setCurrent}
 
 }
 
