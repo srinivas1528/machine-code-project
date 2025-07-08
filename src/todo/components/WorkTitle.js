@@ -12,15 +12,16 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
     const [newTitle, setNewTitle] = useState(title);
 
     // Delete task functionality when delete button is clicked.
+    // eliminates the items in an Array not matching the condition.
     const handleRemoveTask = (task) => {
         setWorkArray((prev) => prev.filter((todoItem) => todoItem !== task));  // Note: here using id for filter will not work because index acts like a fixed value  as it is a prop.
     }
 
-   // set state for editing
+    // set state for editing
     const editTask = () => {
         setIsEditing(true);
     }
-    
+
     // set state for newTitle
     const inputHandler = (event) => {
         setNewTitle(event.target.value);
@@ -29,11 +30,12 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
 
     const handleSave = () => {
 
-       // if item and WorkTitle matches, then update it.
-       // else, keep pushing the same item.
-       // think of logic as selecting the task matching with task id
+        // selector logic: render only the selected div component block.
+        // if item and WorkTitle matches, then update it.
+        // else, keep pushing the same item.
+        // think of logic as selecting the task matching with task id
         const updatedArray = workArray.map((item) => {
-          return item === title ? newTitle : item;
+            return item === title ? newTitle : item;
         })
 
         setWorkArray(updatedArray);
@@ -45,6 +47,10 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
         setIsEditing(false); // Enter edit mode for a nicer experience.
     }
 
+    // const handleCompleteTask = (e) => {
+
+    // }
+
 
     return (
 
@@ -54,7 +60,7 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
 
                     <div>
                         <p>Edit stage: {newTitle}</p>
-                        <input type="text" value={newTitle} onChange={inputHandler}/>
+                        <input type="text" value={newTitle} onChange={inputHandler} />
                         <button className="button" onClick={handleSave}>
                             Save
                         </button>
@@ -65,6 +71,7 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
                 ) :
                 (
                     <div>
+                        <input type="checkbox" onClick={() => handleRemoveTask(title)}></input>
                         <div className="task"> {title} </div>
                         <button className="button" onClick={() => handleRemoveTask(title)}>
                             Delete
@@ -72,6 +79,7 @@ const WorkTitle = ({ index, title, workArray, setWorkArray }) => {
                         <button className="button" onClick={editTask}>
                             Edit
                         </button>
+
                     </div>
                 )
             }

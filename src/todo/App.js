@@ -11,7 +11,23 @@ const App = () => {
 
     const [taskName, setTaskName] = useState("");
 
-    const [taskChoresArray, setTaskChoresArray] = useState(["laundry", "Cleaning"]);
+    // const useSemiPersistentState = (key, initialState) => {
+    //     const [taskChoresArray, setTaskChoresArray] = React.useState(
+    //         localStorage.getItem(key) || initialState
+    //     );
+
+
+    //     React.useEffect(() => {
+    //         localStorage.setItem(key, taskChoresArray);
+    //     }, [taskChoresArray, key]);
+
+    //     return [taskChoresArray, setTaskChoresArray];
+
+    // }
+
+    // const [taskChoresArray, setTaskChoresArray] = useSemiPersistentState('chores', ["laundry", "Cleaning", "jobs apply using referrals"]);
+
+    const [taskChoresArray, setTaskChoresArray] = useState(["laundry", "chores"]);
 
     const isSubmitDisabled = taskInput.trim() === "" || taskInput === taskName;
 
@@ -32,14 +48,20 @@ const App = () => {
     }
 
 
-    // push item to the list whenever a new task is added.
-    useEffect(() => {
+    useEffect(()=> {
         setTaskInput("");
+        // push item to the list whenever a new task is added.
         if (taskName.trim() !== "") {
             setTaskChoresArray((prev) => [...prev, taskName]);
         }
     }, [taskName])
 
+
+    /*
+    1. Implement a feature to mark as complete when checked on a toogle or a button with Mark as complete.
+    2. Drag & resize.
+    3. Implement semi persistence storage.
+    */
 
     return (
         <div>
@@ -49,11 +71,11 @@ const App = () => {
 
                 {taskChoresArray.map((item, index) => (
 
-                    <WorkTitle 
-                    key={index}
-                    title={item}
-                    workArray={taskChoresArray}
-                    setWorkArray={setTaskChoresArray}
+                    <WorkTitle
+                        key={index}
+                        title={item}
+                        workArray={taskChoresArray}
+                        setWorkArray={setTaskChoresArray}
                     />
                 ))
                 }
