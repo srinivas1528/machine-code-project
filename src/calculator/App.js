@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import '/App.css'
+import './App.css'
 
 const App = () => {
 
@@ -20,10 +20,10 @@ const App = () => {
         let num1 = "";
         let num2 = "";
         let operator = ""
-        for (let i = 0; i < input.length(); i++) {
+        for (let i = 0; i < input.length; i++) {
 
-            let char = input[i];
-            if ((char).includes["+", "-", "*", "/"]) {
+            const char = input[i];
+            if ((["+", "-", "*", "/"].includes(char))) {
                 operator = char;
             } else if (!(operator)) {
                 num1 += char;        // retrieves first operand
@@ -70,7 +70,7 @@ const App = () => {
                                 calculateResult :
                                 () => evaluateInput(btn.toString())
                     }
-                    className={`calcuator-button + ${btn === "C" ? "clear" : btn === "=" ? "equal" : ""
+                    className={`calculator-button ${btn === "C" ? "clear" : btn === "=" ? "equal" : ""
                         }`}
                 >
                     {btn}
@@ -82,4 +82,4 @@ const App = () => {
 }
 
 
-export default App
+export default App; 
