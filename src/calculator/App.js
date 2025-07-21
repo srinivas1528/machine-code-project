@@ -43,16 +43,6 @@ const App = () => {
 
     }
 
-    // const handlebtnClick = (btn) => {
-
-    //     if (btn === "C") {
-    //         return clearInput();
-    //     } else if (btn === "=") {
-    //         return calculateResult();
-    //     } else {
-    //         setInput()
-    //     }
-    // } 3 + 5+ 5 // logic does not work for three numbers
 
     const evaluateInput = (value) => {
         setInput((prev) => prev + value);
