@@ -1,0 +1,36 @@
+.componentTitle {
+    width: 35%;
+    margin: 15px auto;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
+.componentHeader {
+    background-color: lightgrey;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px sold darkgray;
+    text-align: center;
+}
+
+.componentOption {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.componentOption span {
+    padding: 8px;
+    border-top: 1px solid lightgray;
+    font-size: 12px;
+    text-align: left;
+}
+
+.componentOption span:hover {
+    background-color: lightgray;
+}
