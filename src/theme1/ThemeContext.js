@@ -14,7 +14,7 @@ const ThemeProvider = ({ children }) => {
     
     }
 
-    // Providing theme and toggle function to the children
+    // Providing theme and toggle function to the children by wrapping with a provider
     return (
         <ThemeContext.Provider value= {{ theme, toggleTheme}}>
             {children}

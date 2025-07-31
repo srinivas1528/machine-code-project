@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../ThemeContext";
 
 
-// Both the pages and About pages require ThemeContext otherwise the state will not be available even after wrapping by the provider.
+// Both the pages and About pages require ThemeContext otherwise the state both theme, toggleTheme will not be available even after wrapping by the provider.
 // we need proper Context import. period.
 const About = () => {
   const { theme, toggleTheme } = useTheme();
